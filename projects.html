@@ -1,0 +1,298 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Brian Paragas Portfolio</title>
+  <meta name="description" content="a portfolio website">
+  <meta name="author" content="brian paragas">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="../images/bp_logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="https://use.typekit.net/aup0iiw.css">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .name{
+      font-family: "aktiv-grotesk", sans-serif;
+      font-weight: 800;
+      font-style: normal;
+      font-size: 148px;
+    }
+    h1 {
+      font-family: "aktiv-grotesk", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+    h2{
+      font-family: "aktiv-grotesk", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+    h4{
+      font-family: "aktiv-grotesk", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+    h5{
+      font-family: "aktiv-grotesk", sans-serif;
+      font-weight: 300;
+      font-style:  normal;
+    }
+    p{
+      font-family: "aktiv-grotesk", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    button{
+      font-family: "aktiv-grotesk", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    .footer{
+    background-color: #101B20;
+    color: #E5E1E6;
+    width: 100dvw;
+    height: 84px;
+    padding-top: 40px;
+    position: absolute;
+    bottom:0;
+    margin-bottom: -260rem;
+    margin-left: 0px;
+}
+  </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="navigation">
+          <div class="logo">
+            <a href="/">
+            <img src="../images/bp_logo.svg" alt="BP Logo" />
+            </a>
+          </div>
+          <div class="navItems">
+            <div class="navContainer">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="info.html">My Info</a></li>
+              </ul>
+              <button>Hire Me!</button>
+            </div>
+          </div>
+        </div>
+        </header>
+    <div class="outerContainer">
+      <div class="name">ALL PROJECTS</div>
+      <button onclick="filterProjects('Graphic Design')">Graphic Design</button>
+      <button onclick="filterProjects('Project Management')">Project Management</button>
+      <button onclick="filterProjects('Social Media Management')">Social Media Management</button>
+      <button onclick="filterProjects('Motion Design')">Motion Design</button>
+      <button onclick="filterProjects('Development')">Development</button>
+      <button onclick="filterProjects('Digital Marketing')">Digital Marketing</button>
+      <button onclick="filterProjects('UI/UX')">UI/UX</button>
+      <button onclick="filterProjects('all')">Show All</button> <!-- Reset button -->
+      
+      <div class="threeColumnProjects" data-category="Project Management, Graphic Design, Motion Design, UI/UX, Development">
+          <div>
+              <h2>Remedify</h2>
+          </div>
+          <div>
+              <h4>Project Management | Graphic Design | Motion Design | UI/UX | Development</h4>
+          </div>
+          <div>
+              <img src="../images/remedify/remedifyHeader.png" alt="phone mockup" width="100%" height="100%">
+          </div>
+      </div>
+      
+      <div class="threeColumnProjects" data-category="Graphic Design, Motion Design, Social Media Management">
+          <div>
+              <h2>Illest Illusionz</h2>
+          </div>
+          <div>
+              <h4>Graphic Design | Motion Design | Social Media Management</h4>
+          </div>
+          <div>
+              <img src="../images/illestillusionz/illestCard.png" alt="phone mockup" width="100%" height="100%">
+          </div>
+      </div>
+      
+      <div class="threeColumnProjects" data-category="Graphic Design, Social Media Management">
+        <div>
+            <h2>BCIT Dance Club</h2>
+        </div>
+        <div>
+            <h4>Social Media Management | Graphic Design</h4>
+        </div>
+        <div>
+            <img src="../images/bcitdance/rosiePost.png" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Graphic Design">
+        <div>
+            <h2>Car Clix Photography</h2>
+        </div>
+        <div>
+            <h4>Graphic Design</h4>
+        </div>
+        <div>
+            <img src="../images/carclix/Car Clix Posters.png" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Graphic Design, Project Management, Development, UI/UX">
+        <div>
+            <h2>Budding Writers</h2>
+        </div>
+        <div>
+            <h4>Project Management | Development | Graphic Design | UI/UX</h4>
+        </div>
+        <div>
+            <img src="../images/bw/bwHeader.png" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Graphic Design, Project Management, Development, UI/UX">
+        <div>
+            <h2>Tranquility Cranes</h2>
+        </div>
+        <div>
+            <h4>Project Management | Development | Graphic Design | UI/UX</h4>
+        </div>
+        <div>
+            <img src="../images/tc/tcPhoneMockup.png" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Motion Design">
+        <div>
+            <h2>Motion Graphics</h2>
+        </div>
+        <div>
+            <h4>Motion Design</h4>
+        </div>
+        <div>
+            <img src="../images/motiongraphics/Sentinels-Gameday-Gif.gif" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Graphic Design">
+        <div>
+            <h2>Mechanical Objects</h2>
+        </div>
+        <div>
+            <h4>Graphic Design</h4>
+        </div>
+        <div>
+            <img src="../images/mechanicalObject/espressoMachine.png" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Graphic Design">
+        <div>
+            <h2>Poster Designs</h2>
+        </div>
+        <div>
+            <h4>Graphic Design</h4>
+        </div>
+        <div>
+            <img src="../images/posters/philwizardLululemon.png" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Graphic Design, Digital Marketing">
+        <div>
+            <h2>Event Flyers</h2>
+        </div>
+        <div>
+            <h4>Graphic Design | Promotional Material</h4>
+        </div>
+        <div>
+            <img src="../images/eventflyers/givingBuckFinal.jpg" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Graphic Design, Digital Marketing">
+        <div>
+            <h2>Youtube Thumbnails</h2>
+        </div>
+        <div>
+            <h4>Graphic Design | Promotional Material</h4>
+        </div>
+        <div>
+            <img src="../images/ytThumbnails/reynaA.jpg" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Graphic Design">
+        <div>
+            <h2>Twitter Headers</h2>
+        </div>
+        <div>
+            <h4>Graphic Design</h4>
+        </div>
+        <div>
+            <img src="../images/twitterHeaders/Tenz Twitter Banner.jpg" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Graphic Design">
+        <div>
+            <h2>eSports Graphics</h2>
+        </div>
+        <div>
+            <h4>Graphic Design</h4>
+        </div>
+        <div>
+            <img src="../images/eSports/Vancouver Titans Gameday Graphic.jpg" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <div class="threeColumnProjects" data-category="Graphic Design | Development">
+        <div>
+            <h2>The Kings Gambit</h2>
+        </div>
+        <div>
+            <h4>Graphic Design | Web Development </h4>
+        </div>
+        <div>
+            <img src="../images/kingsGambit/theKingsGambit.jpg" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+
+      <h1>More to come...</h1>
+
+
+    </div>
+
+  <script>
+    function filterProjects(category) {
+    const projects = document.querySelectorAll('.threeColumnProjects');
+
+    projects.forEach(project => {
+        const projectCategories = project.getAttribute('data-category');
+
+        if (category === 'all' || projectCategories.includes(category)) {
+            project.style.display = 'grid'; 
+        } else {
+            project.style.display = 'none'; 
+        }
+    });
+}
+  </script>
+  <footer>
+    <div class="footer">
+      <p>Want to Connect?</p>
+      <h4>brianparagas49@gmail.com</h4>
+      <hr>
+    </div>
+  </footer>
+</body>
+</html
