@@ -59,12 +59,21 @@ body{
     margin:0;
 }
 
+.services>h5:last-of-type{
+    margin-top: 8px;
+}
+
+.services a {
+    text-decoration: none;
+    color: black;
+}
+
 .intro{
     max-width: 12rem;
 }
 
 .introButtons{
-    margin-top: 100px;
+    margin-top: 220px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -328,13 +337,16 @@ body{
     column-gap: 4px;
 }
 
+.socials a{
+    margin-top: 4px;
+    width: 4%
+}
+
 .socials button {
-    background-color: #101b20;
     color: #e5e1e6;
     font-family: 'Aktiv Grotesk', sans-serif;
     font-size: 18px;
     font-weight: 500;
-    padding: 6px 16px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -357,7 +369,7 @@ body{
 
 .projectsContainer{
     margin-top: 8rem;
-    margin-right: -10px;
+    margin-right: -100px;
 }
 
 .projectSection{
