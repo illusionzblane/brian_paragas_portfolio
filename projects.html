@@ -23,6 +23,42 @@
       font-style: normal;
       font-size: 148px;
     }
+    .name {
+            display: flex;
+            gap: 5px;
+        }
+
+        .name span {
+            opacity: 0;
+            transform: translateY(-100px);
+            animation: dropIn 0.5s ease-out forwards;
+        }
+
+        @keyframes dropIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .name span:nth-child(1) { animation-delay: 0s; }
+        .name span:nth-child(2) { animation-delay: 0.1s; }
+        .name span:nth-child(3) { animation-delay: 0.2s; }
+        .name span:nth-child(4) { animation-delay: 0.3s; }
+        .name span:nth-child(5) { animation-delay: 0.4s; }
+        .name span:nth-child(6) { animation-delay: 0.5s; }
+        .name span:nth-child(7) { animation-delay: 0.6s; }
+        .name span:nth-child(8) { animation-delay: 0.7s; }
+        .name span:nth-child(9) { animation-delay: 0.8s; }
+        .name span:nth-child(10) { animation-delay: 0.9s; }
+        .name span:nth-child(11) { animation-delay: 1s; }
+        .name span:nth-child(12) { animation-delay: 1.1s; }
+        .name span:nth-child(13) { animation-delay: 1.1s; }
+
     h1 {
       font-family: "aktiv-grotesk", sans-serif;
       font-weight: 700;
@@ -68,6 +104,9 @@ a {
   color:#101B20;
   text-decoration: none;
 }
+html,body {
+    cursor: none;
+        }
   </style>
 
 </head>
@@ -87,13 +126,40 @@ a {
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="info.html">My Info</a></li>
               </ul>
-              <button>Hire Me!</button>
+              <button>Let's Chat!</button>
             </div>
           </div>
         </div>
         </header>
+        <div class="cursor">
+          <div class="cursor__ball cursor__ball--big ">
+            <svg height="30" width="30">
+              <circle cx="15" cy="15" r="12" stroke-width="0"></circle>
+            </svg>
+          </div>
+          
+          <div class="cursor__ball cursor__ball--small">
+            <svg height="10" width="10">
+              <circle cx="5" cy="5" r="4" stroke-width="0"></circle>
+            </svg>
+          </div>
+        </div>
     <div class="outerContainer">
-      <div class="name">ALL PROJECTS</div>
+      <div class="name">
+        <span>A</span>
+        <span>L</span>
+        <span>L</span>
+        <span>&nbsp;</span>
+        <span>P</span>
+        <span>R</span>
+        <span>O</span>
+        <span>J</span>
+        <span>E</span>
+        <span>C</span>
+        <span>T</span>
+        <span>S</span>
+      </div>
+      <div class="filterButtons">
       <button onclick="filterProjects('Graphic Design')">Graphic Design</button>
       <button onclick="filterProjects('Project Management')">Project Management</button>
       <button onclick="filterProjects('Social Media Management')">Social Media Management</button>
@@ -102,18 +168,32 @@ a {
       <button onclick="filterProjects('Digital Marketing')">Digital Marketing</button>
       <button onclick="filterProjects('UI/UX')">UI/UX</button>
       <button onclick="filterProjects('all')">Show All</button> <!-- Reset button -->
-      
+    </div>
       <a href="projects/remedify.html">
       <div class="threeColumnProjects" data-category="Project Management, Graphic Design, Motion Design, UI/UX, Development">
           <div>
               <h2>Remedify</h2>
           </div>
           <div>
-              <h4>Project Management | Graphic Design | Motion Design | UI/UX | Development</h4>
+              <h5>Project Management | Graphic Design | Motion Design | UI/UX | Development</h5>
           </div>
           <div>
               <img src="../images/remedify/remedifyHeader.png" alt="phone mockup" width="100%" height="100%">
           </div>
+      </div>
+    </a>
+
+    <a href="projects/motiongraphics.html">
+      <div class="threeColumnProjects" data-category="Motion Design">
+        <div>
+            <h2>Motion Graphics</h2>
+        </div>
+        <div>
+            <h5>Motion Design</h5>
+        </div>
+        <div>
+            <img src="../images/motiongraphics/Sentinels-Gameday-Gif.gif" alt="phone mockup" width="100%" height="100%">
+        </div>
       </div>
     </a>
       
@@ -123,7 +203,7 @@ a {
               <h2>Illest Illusionz</h2>
           </div>
           <div>
-              <h4>Graphic Design | Motion Design | Social Media Management</h4>
+              <h5>Graphic Design | Motion Design | Social Media Management</h5>
           </div>
           <div>
               <img src="../images/illestillusionz/illestCard.png" alt="phone mockup" width="100%" height="100%">
@@ -137,7 +217,7 @@ a {
             <h2>BCIT Dance Club</h2>
         </div>
         <div>
-            <h4>Social Media Management | Graphic Design</h4>
+            <h5>Social Media Management | Graphic Design</h5>
         </div>
         <div>
             <img src="../images/bcitdance/rosiePost.png" alt="phone mockup" width="100%" height="100%">
@@ -151,7 +231,7 @@ a {
             <h2>Car Clix Photography</h2>
         </div>
         <div>
-            <h4>Graphic Design</h4>
+            <h5>Graphic Design</h5>
         </div>
         <div>
             <img src="../images/carclix/Car Clix Posters.png" alt="phone mockup" width="100%" height="100%">
@@ -159,55 +239,14 @@ a {
       </div>
     </a>
 
-    <a href="projects/buddingwriters.html">
-      <div class="threeColumnProjects" data-category="Graphic Design, Project Management, Development, UI/UX">
-        <div>
-            <h2>Budding Writers</h2>
-        </div>
-        <div>
-            <h4>Project Management | Development | Graphic Design | UI/UX</h4>
-        </div>
-        <div>
-            <img src="../images/bw/bwHeader.png" alt="phone mockup" width="100%" height="100%">
-        </div>
-      </div>
-    </a>
-
-    <a href="projects/tranquilitycranes.html">
-      <div class="threeColumnProjects" data-category="Graphic Design, Project Management, Development, UI/UX">
-        <div>
-            <h2>Tranquility Cranes</h2>
-        </div>
-        <div>
-            <h4>Project Management | Development | Graphic Design | UI/UX</h4>
-        </div>
-        <div>
-            <img src="../images/tc/tcPhoneMockup.png" alt="phone mockup" width="100%" height="100%">
-        </div>
-      </div>
-    </a>
-
-    <a href="projects/motiongraphics.html">
-      <div class="threeColumnProjects" data-category="Motion Design">
-        <div>
-            <h2>Motion Graphics</h2>
-        </div>
-        <div>
-            <h4>Motion Design</h4>
-        </div>
-        <div>
-            <img src="../images/motiongraphics/Sentinels-Gameday-Gif.gif" alt="phone mockup" width="100%" height="100%">
-        </div>
-      </div>
-    </a>
-
+    
     <a href="projects/mechanicalobjects.html">
       <div class="threeColumnProjects" data-category="Graphic Design">
         <div>
             <h2>Mechanical Objects</h2>
         </div>
         <div>
-            <h4>Graphic Design</h4>
+            <h5>Graphic Design</h5>
         </div>
         <div>
             <img src="../images/mechanicalObject/espressoMachine.png" alt="phone mockup" width="100%" height="100%">
@@ -221,7 +260,7 @@ a {
             <h2>Poster Designs</h2>
         </div>
         <div>
-            <h4>Graphic Design</h4>
+            <h5>Graphic Design</h5>
         </div>
         <div>
             <img src="../images/posters/rosiey2k.png" alt="phone mockup" width="100%" height="100%">
@@ -235,10 +274,38 @@ a {
             <h2>Event Flyers</h2>
         </div>
         <div>
-            <h4>Graphic Design | Promotional Material</h4>
+            <h5>Graphic Design | Promotional Material</h5>
         </div>
         <div>
             <img src="../images/eventflyers/givingBuckFinal.jpg" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+    </a>
+
+    <a href="projects/buddingwriters.html">
+      <div class="threeColumnProjects" data-category="Graphic Design, Project Management, Development, UI/UX">
+        <div>
+            <h2>Budding Writers</h2>
+        </div>
+        <div>
+            <h5>Project Management | Development | Graphic Design | UI/UX</h5>
+        </div>
+        <div>
+            <img src="../images/bw/bwHeader.png" alt="phone mockup" width="100%" height="100%">
+        </div>
+      </div>
+    </a>
+
+    <a href="projects/tranquilitycranes.html">
+      <div class="threeColumnProjects" data-category="Graphic Design, Project Management, Development, UI/UX">
+        <div>
+            <h2>Tranquility Cranes</h2>
+        </div>
+        <div>
+            <h5>Project Management | Development | Graphic Design | UI/UX</h5>
+        </div>
+        <div>
+            <img src="../images/tc/tcPhoneMockup.png" alt="phone mockup" width="100%" height="100%">
         </div>
       </div>
     </a>
@@ -249,7 +316,7 @@ a {
             <h2>Youtube Thumbnails</h2>
         </div>
         <div>
-            <h4>Graphic Design | Promotional Material</h4>
+            <h5>Graphic Design | Promotional Material</h5>
         </div>
         <div>
             <img src="../images/ytThumbnails/reynaA.jpg" alt="phone mockup" width="100%" height="100%">
@@ -263,7 +330,7 @@ a {
             <h2>Twitter Headers</h2>
         </div>
         <div>
-            <h4>Graphic Design</h4>
+            <h5>Graphic Design</h5>
         </div>
         <div>
             <img src="../images/twitterHeaders/Tenz Twitter Banner.jpg" alt="phone mockup" width="100%" height="100%">
@@ -277,7 +344,7 @@ a {
             <h2>eSports Graphics</h2>
         </div>
         <div>
-            <h4>Graphic Design</h4>
+            <h5>Graphic Design</h5>
         </div>
         <div>
             <img src="../images/eSports/Vancouver Titans Gameday Graphic.jpg" alt="phone mockup" width="100%" height="100%">
@@ -291,7 +358,7 @@ a {
             <h2>The Kings Gambit</h2>
         </div>
         <div>
-            <h4>Graphic Design | Development </h4>
+            <h5>Graphic Design | Development </h5>
         </div>
         <div>
             <img src="../images/kingsGambit/theKingsGambit.jpg" alt="phone mockup" width="100%" height="100%">
@@ -303,7 +370,40 @@ a {
 
 
     </div>
+    <script>
+const smallBall = document.querySelector(".cursor__ball--small");
+const bigBall = document.querySelector(".cursor__ball--big");
+const projectsContainer = document.querySelector(".projectsContainer");
 
+let smallX = 0, smallY = 0;
+let bigX = 0, bigY = 0;
+let targetX = 0, targetY = 0;
+const yOffset = 4;
+
+document.addEventListener("mousemove", (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+});
+
+function animateCursor() {
+    smallX += (targetX - smallX) * 1;
+    smallY += (targetY - smallY) * 1;
+
+    bigX += (targetX - bigX) * 0.1; 
+    bigY += (targetY - bigY) * 0.1;
+
+    const smallBallSize = smallBall.offsetWidth / 2;
+    const bigBallSize = bigBall.offsetWidth / 2;
+
+    smallBall.style.transform = `translate(${smallX - smallBallSize}px, ${smallY - smallBallSize - yOffset}px)`;
+    bigBall.style.transform = `translate(${bigX - bigBallSize}px, ${bigY - bigBallSize - yOffset}px)`;
+
+    requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
+
+  </script>
   <script>
     function filterProjects(category) {
     const projects = document.querySelectorAll('.threeColumnProjects');

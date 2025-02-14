@@ -1,9 +1,3 @@
-html, body {
-    margin: 0;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-}
-
 body{
     background-size: auto;
     background-color: #E5E1E6;
@@ -73,7 +67,7 @@ body{
 }
 
 .introButtons{
-    margin-top: 220px;
+    margin-top: 150px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -205,24 +199,23 @@ body{
     position: fixed;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    width: 80dvw;
+    justify-content:space-around;
+    width:100dvw;
     height: 40px;
     align-items: center;
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(4.5px);
     -webkit-backdrop-filter: blur(9.5px);
-    padding: 16px 20px;
-    border-radius: 16px;
+    padding: 1em;
+    left:0;
     top: 0;
-    margin: 0px 138px;
     z-index: 2;
     font-family: 'Aktiv Grotesk', sans-serif;
 }
 
 .navContainer {
     width: fit-content;
-    padding: 10px;
+    padding: 0px 80px 0px 100px;
     display: flex;
     flex-direction: row;
 }
@@ -304,7 +297,6 @@ body{
     font-weight: 500;
     padding: 10px 20px;
     border: none;
-    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
@@ -368,7 +360,7 @@ body{
 }
 
 .projectsContainer{
-    margin-top: 8rem;
+    margin-top: 1rem;
     margin-right: -100px;
 }
 
@@ -460,7 +452,7 @@ body{
 }
 
 .info{
-    margin-top: 4rem;
+    margin-top: 8rem;
 }
 
 .footer{
@@ -655,7 +647,7 @@ body{
 }
 
 .introName{
-    padding-top:3rem;
+    padding-top:1rem;
     scroll-snap-align: start;
     scroll-snap-stop: always;
 }
@@ -714,18 +706,23 @@ body{
     margin: 0 auto;
 }
 
-
 .threeColumnProjects{
     display: grid;
     grid-template-columns:repeat(3, 1fr);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     column-gap: 16px;
     align-items: center;
-    border: solid #0d161b 4px;
-    border-radius: 24px;
-    height:162px;
-    padding:16px
+    border: solid #0d161b 2px;
+    height:20em;
+    padding:16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.threeColumnProjects:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(81, 12, 118, 0.7);
+    opacity: 1;
 }
 
 .threeColumnProjects h5, h4, h3 {
@@ -737,8 +734,11 @@ body{
     display: flex; 
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
     overflow: hidden;
+}
+
+.threeColumnProjects div:nth-of-type(2){
+    width:50%;
 }
 
 .threeColumnProjects img {
@@ -747,3 +747,27 @@ body{
     object-fit: cover;
 }
 
+.filterButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 28px;
+    margin-top: 12em;
+}
+
+.filterButtons button{
+    color: #e5e1e6;
+    background-color: #101B20;
+    font-family: 'Aktiv Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    padding:8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.filterButtons button:hover{
+    background-color: #0d161b;
+    transform: scale(1.05);
+}
