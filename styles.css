@@ -713,8 +713,7 @@ body{
     margin-bottom: 40px;
     column-gap: 16px;
     align-items: center;
-    border: solid #0d161b 2px;
-    height:20em;
+    height:16em;
     padding:16px;
     transition: all 0.3s ease-in-out;
 }
@@ -723,6 +722,8 @@ body{
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(81, 12, 118, 0.7);
     opacity: 1;
+    color:#E5E1E6;
+    background-color: #0d161b;
 }
 
 .threeColumnProjects h5, h4, h3 {
