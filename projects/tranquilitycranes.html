@@ -61,6 +61,52 @@
     .posterOne{
         margin-top: 20rem;
     }
+    .carousel-container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .carousel-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%; /* Ensure the slides take up the full container height */
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+  }
+
+  .carousel-slide img, .carousel-slide video {
+    width: 100%;
+    height: 100%; /* Ensure the image/video takes up the full height of the slide */
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+  }
+
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .prev {
+    left: 0;
+  }
+
+  .next {
+    right: 0;
+  }
   </style>
 
 </head>
@@ -80,7 +126,9 @@
               <li><a href="../projects.html">Projects</a></li>
               <li><a href="../info.html">My Info</a></li>
             </ul>
-            <button>Hire Me!</button>
+            <a href="mailto:brianparagas49@gmail.com">
+              <button>Let's Chat!</button>
+            </a>            
           </div>
         </div>
       </div>
@@ -91,7 +139,7 @@
             <h4>Project Management | App Development | Motion Design | Case Study</h4>
           </div>
           <div>
-                <img src="../images/tc/tcPhoneMockup.png" alt="phone mockup" width="100%" height="100%">
+                <img src="../images/tc/tcPhoneMockup.jpg" alt="phone mockup" width="100%" height="100%">
           </div>
           <div class="threeColumn">
             <div>
@@ -103,8 +151,17 @@
               <h5>January 2024 - May 2024</h5>
             </div>
             <div>
-              <h2>Project Details Coming Soon</h2>
+              <ul>
+                <li><h5>Led cross-functional teams to successfully deliver digital projects on time, enhancing workflow efficiency and collaboration.</h5></li>
+                <li><h5>Developed and implemented front-end solutions, ensuring seamless user experiences and responsive design.</h5></li>
+                <li><h5>Created dynamic motion graphics and animations to elevate brand storytelling and engagement.</h5></li>
+              </ul>
             </div>
+      </div>
+      <div>
+        <h3>
+          Tranquility Cranes is a mobile app that helps people manage stress, anxiety, and mental health. It offers guided exercises, activity suggestions, schedules, and community forums for support. The mascot, Terry Crane, provides encouragement, while a unique egg feature reminds users to care for themselves. With a calming design and soft blue colors, the app promotes peace and self-care.
+        </h3>
       </div>
       <div class="viewSection">
         <h2>Hi-Fidelity Prototype</h2>
@@ -113,8 +170,126 @@
           <button><h3>View Website</h3></button>
         </a>          
       </div>
+      <div class="twoColumn">
+        <div>
+            <h2>Target Audience</h2>
+            <ul>
+              <li>
+                <h4>Individuals experiencing stress and anxiety</h4>
+                <h5>
+                  They need tools to manage their mental well-being.</h5>
+              </li>
+              <li>
+                <h4>People seeking self-care</h4>
+                <h5>
+                  Require mindfulness practices to improve their daily routines.</h5>
+              </li>
+              <li>
+                <h4>Young adults and students</h4>
+                <h5>
+                  Stuck facing academic pressure and life transitions.</h5>
+              </li>
+            </ul>
+        </div>
+        <div>
+            <h2>Solutions</h2>
+            <ul>
+              <li>
+                <h4>Guided Coping Exercises</h4>
+                <h5>
+                  Step-by-step techniques to manage stress and anxiety.</h5>
+              </li>
+              <li>
+                <h4>Personalized Activity Suggestions & Schedules</h4>
+                <h5>
+                  Helps users build healthy self-care habits.</h5>
+              </li>
+              <li>
+                <h4>Community</h4>
+                <h5>
+                  A safe space for users to connect, share experiences, and receive support.</h5>
+              </li>
+            </ul>
+        </div>
+    </div>
+    <div class="twoColumn">
+      <div>
+        <h2>Features</h2>
+        <ol>
+          <li>
+            <h4>Suggest Activities Quiz</h4>
+            <h5>
+              Based on your mood, preferred environment, activity intensity, and social preference (introverted or extroverted</h5>
+          </li>
+          <li>
+            <h4>Guided Exercises</h4>
+            <h5>
+              Simple breathing exercises that are easy to follow.</h5>
+          </li>
+          <li>
+            <h4>Live Public Chat Room</h4>
+            <h5>
+              Working chat room to communicate with others with relatable experiences.</h5>
+          </li>
+          <li>
+            <h4>Dark Mode Support</h4>
+            <h5>
+              Features a dark mode to minimize eye strain and improve accessibility, especially for users with visual sensitivities.</h5>
+          </li>
+        </ol>
+      </div>
+      <div>
+        <img src="../images/tc/tcScreens.png" alt="phone mockup" width="100%" height="100%">
+      </div> 
+  </div>
+  <div class="viewSection">
+    <h2>User Persona</h2>
+          <h3>User personas help identify and address the needs of the target audience, guiding design decisions to keep the app practical, user-friendly, and relevant.</h3>
+          <div class="carousel-container">
+            <div class="carousel-slides">
+              <div class="carousel-slide">
+                <img src="../images/tc/tcPersona1.jpg" alt="tc Persona 1">
+              </div>
+              <div class="carousel-slide">
+                <img src="../images/tc/tcPersona2.jpg" alt="tc Persona 2">
+              </div>
+              <div class="carousel-slide">
+                <img src="../images/tc/tcPersona3.jpg" alt="tc Persona 3">
+              </div>
+            </div>
+            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="next" onclick="moveSlide(1)">&#10095;</button>
+          </div>
+  </div>
+  <div class="viewSection">
+    <h2>The Process</h2>
+    <a href="https://www.figma.com/proto/eqiBsR991DWqKMuktHQb1P/Persona?node-id=162-195&p=f&t=fCEJqa5TtzLMx9Dw-1&scaling=min-zoom&content-scaling=fixed&page-id=64%3A4" target="_blank">
+      <button><h3>View Process Files</h3></button>
+    </a>
+    <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://embed.figma.com/design/mkxnHxbblxQ7cckhrTDX5G/MDIA-2106-Tranquility-Cranes-Set-F?node-id=0-1&embed-host=share" allowfullscreen></iframe>        
+  </div>
+  <div class="viewSection">
+    <img src="../images/tc/tcScreens2.png" alt="phone mockup" width="100%" height="100%">
+  </div>
 
       <script src="js/scripts.js"></script>
+      <script>
+        let slideIndex = 0;
+      
+        function moveSlide(step) {
+          const slides = document.querySelectorAll('.carousel-slide');
+          slideIndex += step;
+      
+          if (slideIndex < 0) {
+            slideIndex = slides.length - 1;
+          } else if (slideIndex >= slides.length) {
+            slideIndex = 0;
+          }
+      
+          const newTransform = `translateX(-${slideIndex * 100}%)`;
+          document.querySelector('.carousel-slides').style.transform = newTransform;
+        }
+      </script>         
       <footer>
         <div class="footer">
           <p>Want to Connect?</p>

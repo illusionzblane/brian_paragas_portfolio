@@ -463,7 +463,7 @@ body{
     padding-top: 40px;
     position: absolute;
     bottom:0;
-    margin-bottom: -350rem;
+    margin-bottom: -330rem;
     margin-left: -132px;
 }
 
@@ -543,7 +543,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("../images/illestillusionz/illestCard.png");
+    background-image: url("../images/illestillusionz/illestCard.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -585,7 +585,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("../images/carclix/Car%20Clix%20Posters.png");
+    background-image: url("../images/carclix/Car-Clix-Posters.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -627,7 +627,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("../images/tc/tcPhoneMockup.png");
+    background-image: url("../images/tc/tcPhoneMockup.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -772,3 +772,4 @@ body{
     background-color: #0d161b;
     transform: scale(1.05);
 }
+
