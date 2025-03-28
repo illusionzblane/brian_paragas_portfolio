@@ -296,7 +296,7 @@
     let cursor = document.querySelector('.cursor');
     let cursorBallBig = document.querySelector('.cursor__ball--big');
     let cursorBallSmall = document.querySelector('.cursor__ball--small');
-    let isCameraActive = false; // Flag to track if camera is active
+    let isCameraActive = false; 
 
     async function loadModel() {
       const defaultParams = {
@@ -325,7 +325,7 @@
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
         videoElement.srcObject = stream;
         videoElement.play();
-        isCameraActive = true;  // Camera is now active
+        isCameraActive = true; 
 
         handTrack.startVideo(videoElement).then(status => {
           if (status) {
@@ -362,7 +362,7 @@
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
 
-      isCameraActive = false;  // Camera is no longer active
+      isCameraActive = false; 
     }
 
     async function detectHands() {
@@ -456,14 +456,13 @@
   document.addEventListener("DOMContentLoaded", function () {
     const canvas = document.getElementById("predictionCanvas");
 
-    // Ensure the canvas is visible by default
     canvas.style.display = "block";
 
-    // Get the initial position of the canvas on the page
+
     const canvasPosition = canvas.offsetTop;
 
     window.addEventListener("scroll", function () {
-      // Only apply floating behavior if the camera is active and the user has scrolled past the initial canvas position
+
       if (isCameraActive) {
         if (window.scrollY > canvasPosition) {
           canvas.classList.add("canvas-floating");
