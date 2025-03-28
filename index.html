@@ -177,6 +177,23 @@
         </a>
       </div>
     </div>
+    <div class="tracking">
+      <button id="startBtn">Activate Camera For Motion Tracking</button>
+      <video id="videoElement" width="640" height="480" autoplay></video>
+      <div class="twoColumn">
+      <canvas id="predictionCanvas" width="640" height="480"></canvas>
+      <div class="button-container">
+        <button id="instructions">ⓘ</button>
+        <div class="overlay" id="instructionText">
+          <h3>How to use my motion tracking implementation:</h3>
+          <h3>Place yourself in the center of the camera</h3>
+          <h3>Closed Hand = Scroll Down</h3>
+          <h3>Open Hand = Stop</h3>
+          <h3>Point Up = Return to Top of Page</h3>
+        </div>
+    </div>
+      </div>
+    </div>
   <div class="projectsContainer">
       <div class="projectSection">
         <h5></h5>
@@ -204,7 +221,7 @@
           <h5>Brand Identity</h5>
           <h5>Graphic Designer</h5>
         </div>
-          <img src="../images/illestIllusionz/illestCard.jpg" alt="phone mockup" width="50%" height="50%">
+          <img src="../images/illestCard2.jpg" alt="illest illusionz logo card" width="50%" height="50%">
         </div>
       </a>
     </div>
@@ -270,5 +287,192 @@
     </div>
   </footer>
   <script src="../scripts.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/handtrackjs@latest/dist/handtrack.min.js"></script>
+  <script>
+    let model;
+    let videoElement = document.getElementById('videoElement');
+    let predictionCanvas = document.getElementById('predictionCanvas');
+    let context = predictionCanvas.getContext('2d');
+    let cursor = document.querySelector('.cursor');
+    let cursorBallBig = document.querySelector('.cursor__ball--big');
+    let cursorBallSmall = document.querySelector('.cursor__ball--small');
+    let isCameraActive = false; // Flag to track if camera is active
+
+    async function loadModel() {
+      const defaultParams = {
+        flipHorizontal: true,
+        outputStride: 16,
+        imageScaleFactor: 1,
+        maxNumBoxes: 2,
+        iouThreshold: 0.2,
+        scoreThreshold: 0.6,
+        modelType: "ssd320fpnlite",
+        modelSize: "large",
+        bboxLineWidth: 2,
+        fontSize: 17,
+      };
+
+      try {
+        model = await handTrack.load(defaultParams);
+        console.log('Model loaded!');
+      } catch (error) {
+        console.error('Error loading model:', error);
+      }
+    }
+
+    async function startVideo() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        videoElement.srcObject = stream;
+        videoElement.play();
+        isCameraActive = true;  // Camera is now active
+
+        handTrack.startVideo(videoElement).then(status => {
+          if (status) {
+            console.log("Video started!");
+            detectHands();
+          } else {
+            console.error('Failed to start video');
+          }
+        });
+      } catch (err) {
+        console.error('Error accessing webcam:', err);
+      }
+    }
+
+    function stopVideo() {
+      const video = document.getElementById('videoElement'); 
+      const canvas = document.querySelector('canvas'); 
+
+      if (video && video.srcObject) {
+        const stream = video.srcObject;
+        const tracks = stream.getTracks();
+        tracks.forEach(track => track.stop()); 
+        video.srcObject = null; 
+      }
+
+      handTrack.stopVideo(video).then(() => {
+        console.log('Tracking Stopped');
+      }).catch(err => {
+        console.error('Error stopping hand tracking:', err);
+      });
+
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+
+      isCameraActive = false;  // Camera is no longer active
+    }
+
+    async function detectHands() {
+      const predictions = await model.detect(videoElement);
+      context.clearRect(0, 0, predictionCanvas.width, predictionCanvas.height);
+      model.renderPredictions(predictions, predictionCanvas, context, videoElement);
+
+      let handClosed = false;
+      let isPointing = false;
+
+      if (predictions.length > 0) {
+          predictions.forEach(prediction => {
+              const [x, y, width, height] = prediction.bbox;
+
+              // Detect closed hand (based on size)
+              if (width < 100 && height < 119) { 
+                  handClosed = true;
+              }
+
+              // Detect pointing gesture: hand height is greater than width and height is above 120px
+              if (height > width && height > 120 && width < 85) { 
+                  isPointing = true;
+              }
+          });
+      }
+
+      if (handClosed) {
+          startScrollingDown();
+      } else {
+          stopScrollingDown();
+      }
+
+      if (isPointing) {
+          scrollToTop();
+      }
+
+      requestAnimationFrame(detectHands);
+    }
+
+    let scrollInterval;
+    let isScrollingDown = false;
+    let isScrollingUp = false;
+
+    function startScrollingDown() {
+        if (!isScrollingDown) {
+            isScrollingDown = true;
+            scrollInterval = setInterval(() => {
+                window.scrollBy({ top: 30, behavior: 'smooth' }); // Adjust scroll speed
+            }, 30); // Adjust interval speed (lower is faster)
+        }
+    }
+
+    function stopScrollingDown() {
+        clearInterval(scrollInterval);
+        isScrollingDown = false;
+        scrollInterval = null;
+    }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+    }
+
+    const startBtn = document.getElementById('startBtn');
+
+    startBtn.addEventListener('click', async () => {
+      if (startBtn.textContent === 'Activate Camera For Motion Tracking') {
+        await loadModel();
+        startVideo();
+        startBtn.textContent = 'Stop Tracking';
+      } else {
+        stopVideo(); 
+        startBtn.textContent = 'Activate Camera For Motion Tracking';
+      }
+    });
+</script>
+
+<script>
+  const button = document.getElementById("instructions");
+  const overlay = document.getElementById("instructionText");
+
+  button.addEventListener("mouseenter", () => {
+      overlay.style.display = "block";
+  });
+
+  button.addEventListener("mouseleave", () => {
+      overlay.style.display = "none";
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const canvas = document.getElementById("predictionCanvas");
+
+    // Ensure the canvas is visible by default
+    canvas.style.display = "block";
+
+    // Get the initial position of the canvas on the page
+    const canvasPosition = canvas.offsetTop;
+
+    window.addEventListener("scroll", function () {
+      // Only apply floating behavior if the camera is active and the user has scrolled past the initial canvas position
+      if (isCameraActive) {
+        if (window.scrollY > canvasPosition) {
+          canvas.classList.add("canvas-floating");
+        } else {
+          canvas.classList.remove("canvas-floating");
+        }
+      }
+    });
+  });
+</script>
 </body>
 </html>

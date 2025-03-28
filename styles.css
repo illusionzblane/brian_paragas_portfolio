@@ -463,7 +463,7 @@ body{
     padding-top: 40px;
     position: absolute;
     bottom:0;
-    margin-bottom: -330rem;
+    margin-bottom:-400rem;
     margin-left: -132px;
 }
 
@@ -543,7 +543,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("../images/illestillusionz/illestCard.jpg");
+    background-image: url("../images/illestillusionz/illestCard2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -773,3 +773,91 @@ body{
     transform: scale(1.05);
 }
 
+.tracking{
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+}
+
+.tracking>video{
+    display: none;
+}
+
+#predictionCanvas {
+    transition: all 0.3s ease-in-out;
+    border: 5px solid transparent;
+    border-image-slice: 1;
+    animation: borderAnimation 4s linear infinite;
+  }
+  
+  @keyframes borderAnimation {
+    0% {
+      border-image-source: linear-gradient(0deg, rgba(81, 12, 118, 0.7), transparent);
+    }
+    25% {
+      border-image-source: linear-gradient(90deg, rgba(81, 12, 118, 0.7), transparent);
+    }
+    50% {
+      border-image-source: linear-gradient(180deg, rgba(81, 12, 118, 0.7), transparent);
+    }
+    75% {
+      border-image-source: linear-gradient(270deg, rgba(81, 12, 118, 0.7), transparent);
+    }
+    100% {
+      border-image-source: linear-gradient(360deg, rgba(81, 12, 118, 0.7), transparent);
+    }
+  }
+  
+  .canvas-floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 360px;
+    height: 250px;
+    z-index: 9999;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 330 / 230;
+    
+    border: 5px solid transparent;
+    border-image-slice: 1;
+    animation: borderAnimation 4s linear infinite;
+  }
+  
+  
+  .tracking button {
+    padding: 10px 20px;
+    background-color: #101B20;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  #instructions {
+    background-color: transparent;
+    color: #101B20;
+    width: 20px;
+    height:3em;
+    font-size: large;
+    border-radius: 20px;
+  }
+
+  #instructionText{
+    font-family: "aktiv-grotesk", sans-serif;
+    font-weight: 300;
+    font-style:  normal;
+  }
+
+  .overlay {
+    display: none;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 500px;
+}
+.button-container {
+    position: relative;
+    display: inline-block;
+}
+  
